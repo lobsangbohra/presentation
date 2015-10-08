@@ -7,21 +7,26 @@ _\ \  __/ |   \ V /  __/ |     / / |  __/ (_| | | | | | |
 -----------------------------------------------------------------------------------------------------------------------------------
 
 **********************************************************************************
-Name: 		 Check permission to the url //Login Identifaction		 *
+Name: 		 Check permission to the url //Login Identification		 *
 Description:     Determines level of authentication grants user to login 	 *
 										 *
 Actors:          users 								 *
 Trigger:         User wants to login 						 *
 Precondition:    System must be online						 *
 Postcondition:   Determine if session is logged in or not  			 *
-Result:          permission granted/rejected for users				 *
+Result:          Permission granted/rejected for users				 *
 										 *
 Outline:         1. User login and password					 *
                  2. Determine if credencials are correct			 *
-                 3. Check session id to determine user has privilages to url	 *
+                 3. Check session id to determine user has privileges to url	 *
                  4. Deterine user type (super, admin or public)			 *
                  5. An error code or an access code is generated 		 *
-                 6. Permission to the url is granted				 *
+                 6. Permission to the url is rejected/granted			 *
+										 *
+Alt flow A1 [credentials are incorrect at step 2 in the main flow]		 *
+	A1.1 Return login failure						 *
+Alt flow A2 [insufficient permission to the url at step 3 in the main flow]	 *
+	A2.1 Return permission denied						 *
 **********************************************************************************
 
 **********************************************************************************
@@ -55,6 +60,11 @@ Outline:	1. User requests CRUD						 *
 		4. Validate modifications against database			 *
 		5. Update data to database					 *
 		6. Get verification code					 *
+										 *
+Alt flow A1 [insufficient CRUD permission to the data at step 2 in the main flow]*
+		A1.1 Return permission denied					 *
+Alt flow A2 [data constraints are violated at step 4 in the main flow]		 *
+		A2.1 Return constraints violated				 *
 **********************************************************************************
 
 **********************************************************************************
@@ -63,13 +73,14 @@ Description:	User logouts out of session					 *
 										 *
 Actors:		Users								 *
 Triggers:	User would like to logout out of system				 *
-Precondition:	System must be online						 *
+Precondition:	User must be logged in						 *
 Postcondition:	Determine if session is logged out				 *
 Result:		Users logs out of system					 *
 										 *
 Outline:	1. User logs out of system					 *
 		2. Session id is destroyed 					 *
 										 *
-		Alt flow A1. If user is inactive for a period of time, 		 *
-			     session automatically deleted 			 *
+Alt flow A1 [user is inactive for a period of time at step 1 in the main flow]	 *
+		A1.1 Return session automatically deleted			 *
 **********************************************************************************
+
