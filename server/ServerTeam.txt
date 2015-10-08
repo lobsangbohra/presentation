@@ -9,7 +9,7 @@ Oct 8, 2015
 
 Group Members: Nahidul Sekander (N01001831)
 	       Ivan Nikolaienko (N01058794)
- 	       M.Yalcin Ozdemri (N01079948)
+ 	       M.Yalcin Ozdemir (N01070049)
 	       Jordan Hopper 	(N01080213)
 
 Nahidul Sekander :
@@ -22,7 +22,7 @@ Ivan Nikolaienko :
 Jordan Hopper : 
 	- Editted Use Cases
 
-Yalcin Ozdemri :
+Yalcin Ozdemir :
 	- Editted Use Cases
 
 
