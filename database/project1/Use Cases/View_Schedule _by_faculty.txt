@@ -1,0 +1,12 @@
+Use Case name: View Schedule by faculty
+Short Description: Users views the schedule by instructor 
+Actors: students ,faculty
+Trigger: Users views the schedule by Instructor
+Preconditions:  Populating the existing data
+Postconditions:  access information from exam schedule table to retrieve the day, start_date, end_date, course_id, exam_period and room number
+Results: outputs the schedule by instructor 
+Outline:
+Receive queries to view schedule instructor
+Access information from exam schedule table
+Retrieve the day, start_date, end_date, program name, course name, course section, and room  number information 
+Send back the information
